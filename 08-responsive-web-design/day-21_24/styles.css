@@ -37,7 +37,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 10;
+  display: none;
 }
 
 .menu-btn span {
@@ -74,6 +74,19 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
+}
+
+#side-drawer:target {
+  display: block;
+}
+
+#side-drawer header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 5%;
 }
 
 #side-drawer ul {
@@ -83,6 +96,7 @@ a {
   align-items: center;
   gap: 1.5rem;
   font-size: 1.5rem;
+  margin-top: 10rem;
 }
 
 #side-drawer nav {
@@ -125,6 +139,10 @@ main h1 {
   overflow: hidden;
 }
 
+.food-item h2 {
+  margin-bottom: 1rem;
+}
+
 .food-item img {
   display: block;
   height: 15rem;
@@ -150,6 +168,10 @@ main h1 {
 }
 
 @media (max-width: 48rem) {
+  .menu-btn {
+    display: flex;
+  }
+
   #main-header nav {
     display: none;
   }
