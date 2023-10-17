@@ -7,5 +7,8 @@ let job = {
   salary: 50000,
 };
 
-// alert(hobbies[0]);
-alert(job.salary);
+const calcAdultYears = (userAge) => {
+  return userAge - 18;
+};
+
+console.log(calcAdultYears(age));
