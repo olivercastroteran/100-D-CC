@@ -9,6 +9,7 @@ const db = require('./data/database');
 const authRoutes = require('./routes/auth');
 const blogRoutes = require('./routes/blog');
 const authMiddleware = require('./middlewares/auth-middleware');
+const addCSRFToken = require('./middlewares/csrf-token-middleware');
 
 const mongoDbSessionStore = sessionConfig.createSessionStore(session);
 
@@ -23,10 +24,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session(sessionConfig.createSessionConfig(mongoDbSessionStore)));
 app.use(csrf());
 
+app.use(addCSRFToken);
 app.use(authMiddleware);
 
-app.use(blogRoutes);
 app.use(authRoutes);
+app.use(blogRoutes);
 
 app.use(function (error, req, res, next) {
   res.render('500');
